@@ -26,8 +26,8 @@ docker compose up -d
 mvn clean spring-boot:run
 ```
 
-La API queda disponible en `http://localhost:8080`.
-Swagger UI: `http://localhost:8080/swagger-ui.html`.
+La API queda disponible en `http://localhost:8081`.
+Swagger UI: `http://localhost:8081/swagger-ui.html`.
 
 ## Tests
 
@@ -46,7 +46,7 @@ Cubre los casos:
 ## Postman
 
 `postman/PruebaTecnica.postman_collection.json` contiene todas las peticiones.
-Variable `baseUrl = http://localhost:8080`.
+Variable `baseUrl = http://localhost:8081`.
 
 ## Scripts SQL
 
