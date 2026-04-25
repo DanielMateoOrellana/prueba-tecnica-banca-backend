@@ -1,0 +1,23 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: banca-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: banca
+      MYSQL_USER: banca_user
+      MYSQL_PASSWORD: banca_pass
+      MYSQL_ROOT_PASSWORD: banca_root
+    ports:
+      - "3307:3306"
+    volumes:
+      - banca-mysql-data:/var/lib/mysql
+      - ./scripts:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-pbanca_root"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  banca-mysql-data:
